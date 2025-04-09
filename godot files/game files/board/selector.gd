@@ -4,7 +4,9 @@ extends Sprite2D
 
 @export var player = 1
 var player_tag = "p"+str(player)+"_"
+
 var grid_position = Vector2(0,0)
+var starting = true
 
 func _ready() -> void:
 	pass
@@ -20,4 +22,9 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed(player_tag + "left"): move(Vector2(-1,0))
 	if Input.is_action_just_pressed(player_tag + "right"): move(Vector2(1,0))
 	
-	if Input.is_action_just_pressed(player_tag + "clear"): cell_manager.cell_dict[grid_position].reveal()
+	if Input.is_action_just_pressed(player_tag + "mine"): cell_manager.cell_dict[grid_position].mark()
+	if Input.is_action_just_pressed(player_tag + "clear"):
+		if starting:
+			$"../cell manager".create_mines()
+			starting = false
+		cell_manager.cell_dict[grid_position].reveal()
