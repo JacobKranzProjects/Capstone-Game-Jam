@@ -27,7 +27,7 @@ func create_grid():
 	for i in width:
 		for j in height:
 			var new_cell = cell.instantiate() # Instantiate cell
-			new_cell.position = Vector2(i,j) * cell_size # set cell screen position
+			new_cell.position = Vector2(i+0.5,j+0.5) * cell_size # set cell screen position
 			new_cell.grid_position = Vector2(i,j) # set cell grid position
 			cell_dict[new_cell.grid_position] = new_cell # add cell address to dictionary
 			add_child(new_cell) # add the cell as a child

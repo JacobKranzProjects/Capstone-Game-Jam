@@ -1,9 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://hkwqafdlrb6a"]
+[gd_scene load_steps=4 format=3 uid="uid://hkwqafdlrb6a"]
 
 [ext_resource type="Script" path="res://game files/board/cell manager.gd" id="1_1p6jb"]
+[ext_resource type="Texture2D" uid="uid://ce4cttb53m0qg" path="res://game files/board/selector sprite.png" id="2_6w7jc"]
+[ext_resource type="Script" path="res://game files/board/selector.gd" id="3_piiug"]
 
 [node name="board" type="Node2D"]
 
-[node name="cells" type="Node2D" parent="."]
-position = Vector2(32, 32)
+[node name="cell manager" type="Node2D" parent="."]
 script = ExtResource("1_1p6jb")
+
+[node name="selector" type="Sprite2D" parent="."]
+texture = ExtResource("2_6w7jc")
+centered = false
+script = ExtResource("3_piiug")

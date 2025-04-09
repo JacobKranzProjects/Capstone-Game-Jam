@@ -14,15 +14,15 @@ func _ready() -> void:
 func reveal():
 	if revealed: return
 	revealed = true
+	update()
 	if number == 0:
 		for cell in get_parent().get_cell_neighbors(grid_position):
 			cell.reveal()
-	update()
 
 
 func update():
 	number = 0
-	for cell in 	get_parent().get_cell_neighbors(grid_position): # get the sum of mines in neighbors
+	for cell in get_parent().get_cell_neighbors(grid_position): # get the sum of mines in neighbors
 		if cell.is_mine:
 			number += 1
 	if revealed and !is_mine: frame = number
