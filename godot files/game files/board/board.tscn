@@ -14,9 +14,14 @@ script = ExtResource("1_swuxw")
 [node name="cell manager" type="Node2D" parent="."]
 script = ExtResource("1_1p6jb")
 
-[node name="selector" type="Sprite2D" parent="."]
+[node name="selector_p1" type="Sprite2D" parent="."]
 texture = ExtResource("2_6w7jc")
 script = ExtResource("3_piiug")
+
+[node name="selector_p2" type="Sprite2D" parent="."]
+texture = ExtResource("2_6w7jc")
+script = ExtResource("3_piiug")
+player = 2
 
 [node name="side panel" type="Control" parent="."]
 layout_mode = 3

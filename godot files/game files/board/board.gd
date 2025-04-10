@@ -19,8 +19,14 @@ func _ready():
 	level_data = level_settings.get_level_data(current_level)
 	if level_data:
 		setup_board(level_data)
-		$selector.scale_selector()
-		$selector.update_selector_position()
+		
+		# Initialize Player 1 Selector
+		$selector_p1.scale_selector()
+		$selector_p1.update_selector_position()
+
+		# Initialize Player 2 Selector
+		$selector_p2.scale_selector()
+		$selector_p2.update_selector_position()
 	else:
 		push_error("Level data not found for level %d" % current_level)
 

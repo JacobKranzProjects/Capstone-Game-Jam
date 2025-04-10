@@ -12,12 +12,15 @@ func _ready() -> void:
 	#create_grid()
 	pass
 
-func create_mines(num_mines=mines, can_spawn_selected=false):
+func create_mines(num_mines=mines, excluded_positions=[]):
 	var valid_positions = []
 	for key in cell_dict.keys(): # get the list of valid positions
-		if !cell_dict[key].is_mine and (can_spawn_selected or key != $"../selector".grid_position):
+		if !cell_dict[key].is_mine and key not in excluded_positions:
 			valid_positions.append(key)
-	if num_mines > valid_positions.size(): num_mines = valid_positions.size() # check to make sure we dont add too many mines
+
+	if num_mines > valid_positions.size(): 
+		num_mines = valid_positions.size() # check to make sure we dont add too many mines
+
 	valid_positions.shuffle() # randomize valid positions
 	for i in num_mines: # now make a mine in the first 'num_mines' positions
 		cell_dict[valid_positions[i]].is_mine = true
