@@ -6,8 +6,12 @@ var number
 var is_mine
 
 var grid_position
+var cell_size = 64  # default, overridden from cell manager
 
 func _ready() -> void:
+	var current_texture = sprite_frames.get_frame_texture(animation, frame)
+	var texture_size = current_texture.get_size()
+	scale = Vector2(cell_size / texture_size.x, cell_size / texture_size.y)
 	update()
 
 func mark():

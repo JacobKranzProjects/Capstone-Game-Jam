@@ -3,14 +3,14 @@ extends Node2D
 @export var width = 8
 @export var height = 8
 @export var mines = 16
-const cell_size = 64
+@export var cell_size = 64
 
 var cell = preload("res://game files/cells/cell.tscn")
 var cell_dict = {}
 
-
 func _ready() -> void:
-	create_grid()
+	#create_grid()
+	pass
 
 func create_mines(num_mines=mines, can_spawn_selected=false):
 	var valid_positions = []
@@ -24,11 +24,17 @@ func create_mines(num_mines=mines, can_spawn_selected=false):
 		cell_dict[valid_positions[i]].update()
 
 func create_grid():
+	# Clear existing grid if reloading
+	for existing_cell in get_children():
+		existing_cell.queue_free()
+	cell_dict.clear()
+	
 	for i in width:
 		for j in height:
 			var new_cell = cell.instantiate() # Instantiate cell
 			new_cell.position = Vector2(i+0.5,j+0.5) * cell_size # set cell screen position
 			new_cell.grid_position = Vector2(i,j) # set cell grid position
+			new_cell.cell_size = cell_size
 			cell_dict[new_cell.grid_position] = new_cell # add cell address to dictionary
 			add_child(new_cell) # add the cell as a child
 
