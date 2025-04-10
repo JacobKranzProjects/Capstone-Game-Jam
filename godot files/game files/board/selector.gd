@@ -10,11 +10,6 @@ var starting = true
 
 func _ready() -> void:
 	player_tag = "p" + str(player) + "_"
-	if player == 1:
-		grid_position = Vector2(0, 0) # top-left corner
-	elif player == 2:
-		grid_position = Vector2(cell_manager.width - 1, cell_manager.height - 1) # bottom-right corner
-		modulate = Color(1, 0.4, 0.4)
 
 	scale_selector()
 	update_selector_position()
@@ -25,6 +20,12 @@ func scale_selector():
 	scale = Vector2(target_size / current_texture_size.x, target_size / current_texture_size.y)
 
 func update_selector_position():
+	if player == 1:
+		grid_position = Vector2(0, 0) # top-left corner
+	elif player == 2:
+		grid_position = Vector2(cell_manager.width - 1, cell_manager.height - 1) # bottom-right corner
+		modulate = Color(1, 0.4, 0.4)
+		
 	position = cell_manager.position + (grid_position + Vector2(0.5, 0.5)) * cell_manager.cell_size
 
 func move(dir):

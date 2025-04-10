@@ -30,6 +30,9 @@ func _ready():
 	else:
 		push_error("Level data not found for level %d" % current_level)
 
+	setup_overlay_instructions()
+
+
 func setup_board(data):
 	# Set fixed window size
 	DisplayServer.window_set_size(WINDOW_SIZE)
@@ -129,3 +132,14 @@ func setup_background(data):
 	# Set up the transparent country overlay
 	bg_node.texture = load(data.background)
 	bg_node.modulate = Color(1, 1, 1, 0.3)
+
+func setup_overlay_instructions():
+	var instructions_node = $instructions
+	var instructions_text = "[color=yellow]Player1 [/color] Move: WASD | Reveal: E | Mark: Q     "
+	instructions_text += "[color=orange]Player2 [/color] Move: IJKL | Reveal: O | Mark: U"
+	instructions_node.bbcode_enabled = true
+	instructions_node.text = instructions_text
+	instructions_node.position = Vector2(60, WINDOW_SIZE.y - 30)
+	instructions_node.add_theme_font_size_override("normal_font_size", 18)
+	instructions_node.add_theme_constant_override("line_separation", 2)
+	instructions_node.add_theme_color_override("default_color", Color.WHITE)
