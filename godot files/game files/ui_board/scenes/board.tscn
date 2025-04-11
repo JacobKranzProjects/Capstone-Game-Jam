@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://vnhwytnrhd3f"]
+
+[ext_resource type="Script" path="res://game files/ui_board/scripts/cell manager.gd" id="1_ot4v0"]
+[ext_resource type="Script" path="res://game files/ui_board/scripts/board.gd" id="1_pkk3r"]
+[ext_resource type="Texture2D" uid="uid://ce4cttb53m0qg" path="res://game files/ui_board/assets/selector sprite.png" id="3_yy3kr"]
+
+[node name="board" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 17.9
+script = ExtResource("1_pkk3r")
+
+[node name="cell manager container" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="cell manager" type="GridContainer" parent="cell manager container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+script = ExtResource("1_ot4v0")
+
+[node name="selector" type="TextureRect" parent="."]
+layout_mode = 0
+texture = ExtResource("3_yy3kr")

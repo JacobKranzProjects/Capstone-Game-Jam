@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://gkemj25rhtfs"]
+
+[ext_resource type="Texture2D" uid="uid://pndnlnviopie" path="res://game files/ui_board/assets/minesweeper assets.png" id="1_8oi8i"]
+[ext_resource type="Script" path="res://game files/ui_board/scripts/cell.gd" id="2_48bq1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4k0b"]
+resource_local_to_scene = true
+atlas = ExtResource("1_8oi8i")
+region = Rect2(0, 0, 64, 64)
+
+[node name="cell" type="TextureRect"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_a4k0b")
+script = ExtResource("2_48bq1")
