@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c42s5moctv1bt"
-path="res://.godot/imported/Vietnam.png-1bc6e3e689740a430db57b69c2897602.ctex"
+uid="uid://dbibuf3nrrih8"
+path="res://.godot/imported/Afghanistan.png-c48b85f513bfd26f38fefb74c17d382a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game files/assets/backgrounds/Vietnam.png"
-dest_files=["res://.godot/imported/Vietnam.png-1bc6e3e689740a430db57b69c2897602.ctex"]
+source_file="res://game files/ui_board/assets/maps/Afghanistan.png"
+dest_files=["res://.godot/imported/Afghanistan.png-c48b85f513bfd26f38fefb74c17d382a.ctex"]
 
 [params]
 

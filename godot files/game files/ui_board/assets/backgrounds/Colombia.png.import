@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ciry0yrmbl8lf"
-path="res://.godot/imported/Somalia.png-5fa974ad4cfdc28740a1d15adf50646d.ctex"
+uid="uid://ci71wl4bnfmro"
+path="res://.godot/imported/Colombia.png-16c0946e9e70f7da400d5090d414024c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game files/assets/backgrounds/Somalia.png"
-dest_files=["res://.godot/imported/Somalia.png-5fa974ad4cfdc28740a1d15adf50646d.ctex"]
+source_file="res://game files/ui_board/assets/backgrounds/Colombia.png"
+dest_files=["res://.godot/imported/Colombia.png-16c0946e9e70f7da400d5090d414024c.ctex"]
 
 [params]
 

@@ -21,12 +21,18 @@ func create_mines(num_mines, exclude_cells):
 
 
 
-func create_grid(grid_size):
+func create_grid(grid_size, cell_size):
+	# Clear existing grid if reloading
+	for existing_cell in get_children():
+		existing_cell.queue_free()
+	cell_dict.clear()
+		
 	columns = grid_size
 	for i in grid_size:
 		for j in grid_size:
 			var new_cell = cell_scene.instantiate() # Instantiate cell
 			new_cell.grid_position = Vector2(j,i) # set cell grid position
+			new_cell.custom_minimum_size = Vector2(cell_size, cell_size)
 			cell_dict[new_cell.grid_position] = new_cell # add cell address to dictionary
 			add_child(new_cell) # add the cell as a child
 

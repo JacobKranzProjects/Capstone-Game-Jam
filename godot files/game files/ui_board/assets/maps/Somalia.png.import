@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://beqshv336bw1s"
-path="res://.godot/imported/South Sudan.png-e947abd79a9efd9cb8c19b5ae9a67eaa.ctex"
+uid="uid://whottox1yvuy"
+path="res://.godot/imported/Somalia.png-b0a4a7c294d9fd20c161438dae25e2d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game files/assets/maps/South Sudan.png"
-dest_files=["res://.godot/imported/South Sudan.png-e947abd79a9efd9cb8c19b5ae9a67eaa.ctex"]
+source_file="res://game files/ui_board/assets/maps/Somalia.png"
+dest_files=["res://.godot/imported/Somalia.png-b0a4a7c294d9fd20c161438dae25e2d8.ctex"]
 
 [params]
 

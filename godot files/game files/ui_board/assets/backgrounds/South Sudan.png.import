@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwcjy58fokjm6"
-path="res://.godot/imported/Iraq.png-c340afe4c5cf440b8c172eb3f9a4e9c5.ctex"
+uid="uid://d0vyxm6f6wi40"
+path="res://.godot/imported/South Sudan.png-d3db3afc67965fa9c974e8653f24311d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game files/assets/backgrounds/Iraq.png"
-dest_files=["res://.godot/imported/Iraq.png-c340afe4c5cf440b8c172eb3f9a4e9c5.ctex"]
+source_file="res://game files/ui_board/assets/backgrounds/South Sudan.png"
+dest_files=["res://.godot/imported/South Sudan.png-d3db3afc67965fa9c974e8653f24311d.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b8nr186hw7ksp"
-path="res://.godot/imported/Laos.png-db299bcdd9cc8748472ebce60501aada.ctex"
+path="res://.godot/imported/Laos.png-3306808033db3d3c010ca1cf8b753d53.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game files/assets/backgrounds/Laos.png"
-dest_files=["res://.godot/imported/Laos.png-db299bcdd9cc8748472ebce60501aada.ctex"]
+source_file="res://game files/ui_board/assets/backgrounds/Laos.png"
+dest_files=["res://.godot/imported/Laos.png-3306808033db3d3c010ca1cf8b753d53.ctex"]
 
 [params]
 

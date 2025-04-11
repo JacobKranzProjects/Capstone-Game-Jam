@@ -12,4 +12,6 @@ region = Rect2(0, 0, 64, 64)
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = SubResource("AtlasTexture_a4k0b")
+expand_mode = 1
+stretch_mode = 5
 script = ExtResource("2_48bq1")

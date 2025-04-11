@@ -129,7 +129,7 @@ var levels = {
 func get_level_data(level_number):
 	var level = levels.get(level_number, null)
 	if level:
-		level["background"] = "res://game files/assets/backgrounds/%s.png" % level.country
-		level["map"] = "res://game files/assets/maps/%s.png" % level.country
+		level["background"] = "res://game files/ui_board/assets/backgrounds/%s.png" % level.country
+		level["map"] = "res://game files/ui_board/assets/maps/%s.png" % level.country
 	return level
 	

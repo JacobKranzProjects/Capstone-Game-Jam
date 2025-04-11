@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://21vwor7d75hq"
-path="res://.godot/imported/Laos.png-faad85a7f0d8554a14f046e7542aea57.ctex"
+uid="uid://cvjeksqjfy6l1"
+path="res://.godot/imported/Bosnia.png-27556fd15c08359423bf4ef1eed35cbc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game files/assets/maps/Laos.png"
-dest_files=["res://.godot/imported/Laos.png-faad85a7f0d8554a14f046e7542aea57.ctex"]
+source_file="res://game files/ui_board/assets/backgrounds/Bosnia.png"
+dest_files=["res://.godot/imported/Bosnia.png-27556fd15c08359423bf4ef1eed35cbc.ctex"]
 
 [params]
 

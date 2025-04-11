@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://dt4ge5dyidi8s"]
+
+[ext_resource type="PackedScene" uid="uid://vnhwytnrhd3f" path="res://game files/ui_board/scenes/board.tscn" id="1_kfsf8"]
+[ext_resource type="Script" path="res://game files/main.gd" id="1_xlp2w"]
+[ext_resource type="PackedScene" uid="uid://tsjvy3d8eak8" path="res://game files/ui_board/scenes/info_panel.tscn" id="2_ru45x"]
+[ext_resource type="PackedScene" uid="uid://wignqrx5cqeg" path="res://game files/ui_board/scenes/stat_panel.tscn" id="4_6rhhl"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_xlp2w")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 4.0
+
+[node name="info" parent="VBoxContainer" instance=ExtResource("2_ru45x")]
+layout_mode = 2
+
+[node name="BoardContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Background" type="TextureRect" parent="VBoxContainer/BoardContainer"]
+layout_mode = 2
+expand_mode = 1
+
+[node name="board1" parent="VBoxContainer/BoardContainer" instance=ExtResource("1_kfsf8")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[node name="stats" parent="VBoxContainer/BoardContainer" instance=ExtResource("4_6rhhl")]
+layout_mode = 2
+
+[node name="board2" parent="VBoxContainer/BoardContainer" instance=ExtResource("1_kfsf8")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+player_num = 2

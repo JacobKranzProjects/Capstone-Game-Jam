@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ci71wl4bnfmro"
-path="res://.godot/imported/Colombia.png-4c6ad52caf38c42ad125dbf340f228e3.ctex"
+uid="uid://lbj7ldijsgjk"
+path="res://.godot/imported/Ukraine.png-3fba8e53a44dafd711ba5870fe74fabe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game files/assets/backgrounds/Colombia.png"
-dest_files=["res://.godot/imported/Colombia.png-4c6ad52caf38c42ad125dbf340f228e3.ctex"]
+source_file="res://game files/ui_board/assets/backgrounds/Ukraine.png"
+dest_files=["res://.godot/imported/Ukraine.png-3fba8e53a44dafd711ba5870fe74fabe.ctex"]
 
 [params]
 
