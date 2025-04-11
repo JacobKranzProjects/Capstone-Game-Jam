@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://brlnqa6t03xuf"]
+
+[ext_resource type="PackedScene" uid="uid://vnhwytnrhd3f" path="res://game files/ui_board/scenes/board.tscn" id="1_6filk"]
+[ext_resource type="PackedScene" uid="uid://tsjvy3d8eak8" path="res://game files/ui_board/scenes/info_panel.tscn" id="1_acaki"]
+
+[node name="Testing" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 42
+
+[node name="board1" parent="BoxContainer" instance=ExtResource("1_6filk")]
+layout_mode = 2
+
+[node name="InfoPanel" parent="BoxContainer" instance=ExtResource("1_acaki")]
+layout_mode = 2
+
+[node name="board2" parent="BoxContainer" instance=ExtResource("1_6filk")]
+layout_mode = 2
+player_num = 2

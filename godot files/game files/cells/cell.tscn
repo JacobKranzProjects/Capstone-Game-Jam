@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7g6dq7yir0h2"]
-
-[ext_resource type="Script" path="res://game files/cells/cell.gd" id="1_ufqlc"]
-[ext_resource type="SpriteFrames" uid="uid://cj4ogfvvtvfi6" path="res://game files/cells/cell sprites.tres" id="2_541jd"]
-
-[node name="cell" type="AnimatedSprite2D"]
-sprite_frames = ExtResource("2_541jd")
-script = ExtResource("1_ufqlc")
