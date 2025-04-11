@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" load_steps=14 format=3 uid="uid://cj4ogfvvtvfi6"]
 
-[ext_resource type="Texture2D" uid="uid://pndnlnviopie" path="res://game files/cells/minesweeper assets.png" id="1_426xg"]
+[ext_resource type="Texture2D" uid="uid://pndnlnviopie" path="res://game files/ui_board/assets/minesweeper assets.png" id="1_426xg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_48s66"]
 atlas = ExtResource("1_426xg")
