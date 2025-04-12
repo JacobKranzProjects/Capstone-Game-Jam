@@ -24,20 +24,20 @@ var level_settings = Settings.new()
 var level_data
 var player_stats
 
-func _ready() -> void:
+func _ready():
 	player_tag = "p" + str(player_num) + "_"
-	#cell_manager.create_grid(grid_size)
-	level_data = level_settings.get_level_data(5)
-	setup_board(size, level_data)
 
-func setup_board(board_size, data):
+func setup_board(board_size, data, is_dummy=false):
+	anchors_preset = PRESET_TOP_LEFT
 	size = board_size
 	level_data = data
 	var grid_size = level_data.grid_size.x
+	var min_cell_size = 5 if is_dummy else 20
+	var max_cell_size = 48
 	
 	var available_size = min(size.x, size.y) - PADDING
-	var cell_size = clamp(floor(available_size / grid_size), 20, 48)
-
+	var cell_size = clamp(floor(available_size / grid_size), min_cell_size, max_cell_size)
+	
 	cell_manager.columns = grid_size
 	cell_manager.custom_minimum_size = Vector2(cell_size, cell_size) * grid_size
 	cell_manager.create_grid(grid_size, cell_size)
@@ -49,9 +49,12 @@ func setup_board(board_size, data):
 	if player_num == 2:
 		selector.modulate = Color(1, 0.4, 0.4)
 	update_selector_position()
-	
+
 	player_stats = PlayerStats.new(grid_size * grid_size, 3)
 	setup_instructions()
+	
+	selector.visible = not is_dummy
+	instructions.visible = not is_dummy
 
 func update_selector_position():
 	selector.size = cell_manager.get_child(0).size

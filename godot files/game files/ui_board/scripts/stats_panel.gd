@@ -19,11 +19,12 @@ func update_timer_label():
 	timer.text = "%02d:%02d" % [floor(elapsed / 60), int(elapsed) % 60]
 
 func refresh_stats(p1_stats, p2_stats):
-	lives.text = "%3d | %-3d" % [p1_stats.lives, p2_stats.lives]
-	flagged.text = "%3d | %-3d" % [p1_stats.flagged, p2_stats.flagged]
-	moves.text = "%3d | %-3d" % [p1_stats.moves, p2_stats.moves]
-	cleared.text = "%3d | %-3d" % [p1_stats.cleared, p2_stats.cleared]
-	efficiency.text = "%3d | %-3d" % [p1_stats.efficiency, p2_stats.efficiency]
+	if p1_stats and p2_stats:
+		lives.text = "%3d | %-3d" % [p1_stats.lives, p2_stats.lives]
+		flagged.text = "%3d | %-3d" % [p1_stats.flagged, p2_stats.flagged]
+		moves.text = "%3d | %-3d" % [p1_stats.moves, p2_stats.moves]
+		cleared.text = "%3d | %-3d" % [p1_stats.cleared, p2_stats.cleared]
+		efficiency.text = "%3d | %-3d" % [p1_stats.efficiency, p2_stats.efficiency]
 
 func reset_timer():
 	elapsed = 0.0

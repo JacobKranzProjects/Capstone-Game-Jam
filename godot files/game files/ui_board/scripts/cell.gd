@@ -1,6 +1,6 @@
 extends TextureRect
 
-signal mine_triggered
+signal mine_triggered()
 
 var revealed = false
 var is_marked = false
@@ -46,5 +46,5 @@ func update():
 
 func trigger_loss():
 	update()
-	emit_signal("mine_triggered")
+	mine_triggered.emit()
 	print("trigger a loss here")

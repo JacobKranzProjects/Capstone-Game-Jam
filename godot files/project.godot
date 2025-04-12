@@ -10,16 +10,18 @@ config_version=5
 
 [application]
 
-config/name="Sweep 2 a Safer World!"
-run/main_scene="res://game files/main.tscn"
+config/name="Capstone Game Jam"
+run/main_scene="res://game files/ui_board/scenes/level_selector.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
-config/icon="res://icon.svg"
+
+[autoload]
+
+GameState="*res://game files/ui_board/scripts/global.gd"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/size/mode=2
 window/stretch/mode="viewport"
 
 [input]
@@ -87,5 +89,6 @@ p2_clear={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
 environment/defaults/default_clear_color=Color(0.470588, 0.529412, 0.588235, 1)

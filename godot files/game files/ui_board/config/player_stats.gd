@@ -17,5 +17,5 @@ func _init(total_cells: int, starting_lives: int = 3):
 func update(n_revealed_non_mines: int, n_flagged: int):
 	flagged = n_flagged
 	cleared = int(100.0 * n_revealed_non_mines / n_cells)
-	efficiency = 0 if moves == 0 else int(cleared / moves)
+	efficiency = 0 if moves == 0 else int(float(cleared) / moves)
 	

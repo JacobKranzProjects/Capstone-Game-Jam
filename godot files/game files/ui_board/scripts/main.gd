@@ -5,8 +5,6 @@ const INFO_PANEL_HEIGHT = 160
 const STAT_PANEL_WIDTH = 150
 const BOARD_PADDING = 10
 
-@export var current_level: int = 11
-
 @onready var board1 = $VBoxContainer/BoardContainer/board1
 @onready var board2 = $VBoxContainer/BoardContainer/board2
 @onready var info_panel = $VBoxContainer/info
@@ -22,12 +20,12 @@ func _ready():
 	
 	stat_panel.start_timer()
 	
-	level_data = level_settings.get_level_data(current_level)
+	level_data = level_settings.get_level_data(GameState.selected_level)
 	if level_data:
 		setup_background(level_data)
 		setup_layout(level_data)
 	else:
-		push_error("No data found for level: %d" % current_level)
+		push_error("No data found for level: %d" % GameState.selected_level)
 
 func setup_background(data):
 	background.texture = load(data.background)
@@ -53,7 +51,6 @@ func setup_layout(data):
 
 func _process(_delta):
 	background.size = $VBoxContainer/BoardContainer.size
-	
 	stat_panel.refresh_stats(board1.player_stats, board2.player_stats)
 	
 func end_game():
