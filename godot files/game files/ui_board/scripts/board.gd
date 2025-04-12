@@ -15,6 +15,7 @@ var player_tag = "p" + str(player_num) + "_"
 @onready var cell_manager: GridContainer = $"cell manager container/cell manager"
 @onready var cell_manager_container: HBoxContainer = $"cell manager container"
 @onready var selector: TextureRect = $selector
+@onready var instructions: Label = $instructions
 var selector_grid_position: Vector2 = Vector2(0,0)
 
 var intitial_mines_made = false
@@ -50,6 +51,7 @@ func setup_board(board_size, data):
 	update_selector_position()
 	
 	player_stats = PlayerStats.new(grid_size * grid_size, 3)
+	setup_instructions()
 
 func update_selector_position():
 	selector.size = cell_manager.get_child(0).size
@@ -100,3 +102,16 @@ func update_stats():
 		elif cell.is_marked:
 			n_flagged += 1
 	player_stats.update(n_revealed, n_flagged)
+
+func setup_instructions():
+	# Set instructions dynamically based on player number
+	if player_num == 1:
+		instructions.text = '"WASD": Move | "Q": Clear | "E": Flag'
+	else:
+		instructions.text = '"IJKL": Move | "U": Clear | "O": Flag'
+	# Match width to grid and horizontally center
+	instructions.size.x = cell_manager.size.x
+	instructions.position.x = cell_manager.position.x
+	instructions.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	# Position directly below the grid
+	instructions.position.y = cell_manager.position.y + cell_manager.size.y + 3

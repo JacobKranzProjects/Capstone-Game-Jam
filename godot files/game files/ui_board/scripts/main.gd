@@ -5,7 +5,7 @@ const INFO_PANEL_HEIGHT = 160
 const STAT_PANEL_WIDTH = 150
 const BOARD_PADDING = 10
 
-@export var current_level: int = 1
+@export var current_level: int = 11
 
 @onready var board1 = $VBoxContainer/BoardContainer/board1
 @onready var board2 = $VBoxContainer/BoardContainer/board2

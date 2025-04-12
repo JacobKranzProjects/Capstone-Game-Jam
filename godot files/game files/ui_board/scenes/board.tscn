@@ -35,3 +35,10 @@ offset_right = 64.0
 offset_bottom = 64.0
 texture = ExtResource("3_yy3kr")
 expand_mode = 1
+
+[node name="instructions" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 15
