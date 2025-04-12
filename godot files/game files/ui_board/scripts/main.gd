@@ -2,7 +2,7 @@ extends Control
 
 const WINDOW_SIZE = Vector2(1280, 720)
 const INFO_PANEL_HEIGHT = 160
-const STAT_PANEL_WIDTH = 100
+const STAT_PANEL_WIDTH = 150
 const BOARD_PADDING = 10
 
 @export var current_level: int = 1
@@ -15,19 +15,6 @@ const BOARD_PADDING = 10
 
 var level_settings = Settings.new()
 var level_data
-
-var p1_stats = {
-	lives = 3,
-	moves = 0,
-	percent = 0,
-	efficiency = 0
-}
-var p2_stats = {
-	lives = 3,
-	moves = 0,
-	percent = 0,
-	efficiency = 0
-}
 
 func _ready():
 	DisplayServer.window_set_size(WINDOW_SIZE)
@@ -67,7 +54,7 @@ func setup_layout(data):
 func _process(_delta):
 	background.size = $VBoxContainer/BoardContainer.size
 	
-	stat_panel.update_stats(p1_stats, p2_stats)
+	stat_panel.refresh_stats(board1.player_stats, board2.player_stats)
 	
 func end_game():
 	stat_panel.stop_timer()

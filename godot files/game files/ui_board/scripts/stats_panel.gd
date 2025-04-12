@@ -2,6 +2,7 @@ extends Control
 
 @onready var timer = $VBoxContainer/VBoxContainer/Timer
 @onready var lives = $VBoxContainer/VBoxContainer/Lives/value
+@onready var flagged = $VBoxContainer/VBoxContainer/Flagged/value
 @onready var moves = $VBoxContainer/VBoxContainer/Moves/value
 @onready var cleared = $VBoxContainer/VBoxContainer/Cleared/value
 @onready var efficiency = $VBoxContainer/VBoxContainer/Efficiency/value
@@ -17,11 +18,12 @@ func _process(delta):
 func update_timer_label():
 	timer.text = "%02d:%02d" % [floor(elapsed / 60), int(elapsed) % 60]
 
-func update_stats(p1_stats, p2_stats):
-	lives.text = "%d | %d" % [p1_stats.lives, p2_stats.lives]
-	moves.text = "%d | %d" % [p1_stats.moves, p2_stats.moves]
-	cleared.text = "%d%% | %d%%" % [p1_stats.percent, p2_stats.percent]
-	efficiency.text = "%d%% | %d%%" % [p1_stats.efficiency, p2_stats.efficiency]
+func refresh_stats(p1_stats, p2_stats):
+	lives.text = "%3d | %-3d" % [p1_stats.lives, p2_stats.lives]
+	flagged.text = "%3d | %-3d" % [p1_stats.flagged, p2_stats.flagged]
+	moves.text = "%3d | %-3d" % [p1_stats.moves, p2_stats.moves]
+	cleared.text = "%3d | %-3d" % [p1_stats.cleared, p2_stats.cleared]
+	efficiency.text = "%3d | %-3d" % [p1_stats.efficiency, p2_stats.efficiency]
 
 func reset_timer():
 	elapsed = 0.0

@@ -21,7 +21,7 @@ var intitial_mines_made = false
 var PADDING = 40
 var level_settings = Settings.new()
 var level_data
-
+var player_stats
 
 func _ready() -> void:
 	player_tag = "p" + str(player_num) + "_"
@@ -48,6 +48,8 @@ func setup_board(board_size, data):
 	if player_num == 2:
 		selector.modulate = Color(1, 0.4, 0.4)
 	update_selector_position()
+	
+	player_stats = PlayerStats.new(grid_size * grid_size, 3)
 
 func update_selector_position():
 	selector.size = cell_manager.get_child(0).size
@@ -65,7 +67,11 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed(player_tag + "left"): move_selector(Vector2(-1,0))
 	if Input.is_action_just_pressed(player_tag + "right"): move_selector(Vector2(1,0))
 
-	if Input.is_action_just_pressed(player_tag + "mark"): cell_manager.mark(selector_grid_position)
+	if Input.is_action_just_pressed(player_tag + "mark"): 
+		cell_manager.mark(selector_grid_position)
+		player_stats.moves += 1
+		update_stats()
+	
 	if Input.is_action_just_pressed(player_tag + "clear"):
 		if !intitial_mines_made:
 			var exclusions = cell_manager.get_cell_neighbors(selector_grid_position)
@@ -73,3 +79,24 @@ func _process(_delta: float) -> void:
 			cell_manager.create_mines(level_data.mines, exclusions)
 			intitial_mines_made = true
 		cell_manager.cell_dict[selector_grid_position].reveal()
+		player_stats.moves += 1
+		update_stats()
+
+func _on_mine_triggered():
+	player_stats.lives -= 1
+	update_stats()
+	
+	if player_stats.lives <= 0:
+		print('Player %d game over!' % player_num)
+		# TODO: trigger game-over stuff
+
+func update_stats():
+	# find out how many cells are revealed & not mines, and how many are flagged
+	var n_revealed = 0
+	var n_flagged = 0
+	for cell in cell_manager.cell_dict.values():
+		if cell.revealed and not cell.is_mine:
+			n_revealed += 1
+		elif cell.is_marked:
+			n_flagged += 1
+	player_stats.update(n_revealed, n_flagged)

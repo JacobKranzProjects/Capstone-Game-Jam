@@ -33,6 +33,9 @@ func create_grid(grid_size, cell_size):
 			var new_cell = cell_scene.instantiate() # Instantiate cell
 			new_cell.grid_position = Vector2(j,i) # set cell grid position
 			new_cell.custom_minimum_size = Vector2(cell_size, cell_size)
+			
+			new_cell.mine_triggered.connect(get_parent().get_parent()._on_mine_triggered)
+			
 			cell_dict[new_cell.grid_position] = new_cell # add cell address to dictionary
 			add_child(new_cell) # add the cell as a child
 
