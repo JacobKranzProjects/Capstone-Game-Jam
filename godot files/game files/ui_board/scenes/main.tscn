@@ -39,3 +39,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 player_num = 2
+
+[connection signal="has_cell_revealed" from="VBoxContainer/BoardContainer/board1" to="." method="on_board_cell_revealed"]
+[connection signal="has_mine_triggered" from="VBoxContainer/BoardContainer/board1" to="." method="on_board_mine_triggered"]
+[connection signal="request_partner_control" from="VBoxContainer/BoardContainer/board1" to="." method="activate_partner_control"]
+[connection signal="has_cell_revealed" from="VBoxContainer/BoardContainer/board2" to="." method="on_board_cell_revealed"]
+[connection signal="has_mine_triggered" from="VBoxContainer/BoardContainer/board2" to="." method="on_board_mine_triggered"]
+[connection signal="request_partner_control" from="VBoxContainer/BoardContainer/board2" to="." method="activate_partner_control"]

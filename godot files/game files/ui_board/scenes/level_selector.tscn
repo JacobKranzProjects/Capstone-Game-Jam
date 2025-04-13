@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://djyfk7jbb548h"]
+[gd_scene load_steps=3 format=3 uid="uid://djyfk7jbb548h"]
 
 [ext_resource type="Script" path="res://game files/ui_board/scripts/level_selector.gd" id="1_wk8p8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ut62"]
+bg_color = Color(0.298039, 0.686275, 0.313726, 1)
 
 [node name="LevelSelector" type="Control"]
 layout_mode = 3
@@ -24,6 +27,7 @@ offset_right = 341.0
 offset_bottom = 194.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 10
 
 [node name="Title" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -50,13 +54,14 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
-[node name="StartButton" type="Button" parent="VBoxContainer"]
+[node name="NextButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(0.298039, 0.686275, 0.313726, 1)
 theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_6ut62")
 action_mode = 0
 keep_pressed_outside = true
-text = "START"
+text = "NEXT"
+flat = true
 
-[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/NextButton" to="." method="_on_next_button_pressed"]

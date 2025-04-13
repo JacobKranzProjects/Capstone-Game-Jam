@@ -37,7 +37,7 @@ func configure_thumbnail(thumbnail, level_number, data):
 	var dummy = board_scene.instantiate()
 	thumbnail.get_node("VBoxContainer").add_child(dummy)
 	await dummy.ready
-	dummy.setup_board(thumbnail.custom_minimum_size * 0.75, data, true)
+	dummy.setup_board(thumbnail.custom_minimum_size * 0.75, data, null, true)
 
 	# Selection event
 	thumbnail.gui_input.connect(func(event):
@@ -79,9 +79,9 @@ func _get_level_number_from_thumbnail(thumbnail):
 			return number
 	return null
 
-func _on_start_button_pressed() -> void:
+func _on_next_button_pressed() -> void:
 	GameState.selected_level = selected_level
-	get_tree().change_scene_to_file("res://game files/ui_board/scenes/main.tscn")
+	get_tree().change_scene_to_file("res://game files/ui_board/scenes/tool_selector.tscn")
 
 func queue_free_children():
 	for child in get_children():

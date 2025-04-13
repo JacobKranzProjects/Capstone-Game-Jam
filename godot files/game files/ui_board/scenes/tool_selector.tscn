@@ -1,0 +1,141 @@
+[gd_scene load_steps=7 format=3 uid="uid://xuma4e2lcbji"]
+
+[ext_resource type="Script" path="res://game files/ui_board/scripts/tool_selector.gd" id="1_6gd65"]
+[ext_resource type="Texture2D" uid="uid://8p0h45exssog" path="res://game files/ui_board/assets/select.png" id="2_n7xro"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ksiq7"]
+bg_color = Color(0.6, 0.686275, 0.686275, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqff5"]
+bg_color = Color(0.298039, 0.686275, 0.313726, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pcs3b"]
+bg_color = Color(0.298039, 0.686275, 0.313726, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3lad1"]
+bg_color = Color(0.298039, 0.686275, 0.313726, 1)
+
+[node name="ToolSelector" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6gd65")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 159.0
+offset_top = 76.0
+offset_right = 1127.0
+offset_bottom = 606.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "Sweep2 a Safer World!"
+horizontal_alignment = 1
+vertical_alignment = 3
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Choose Your Power-Up"
+horizontal_alignment = 1
+vertical_alignment = 3
+uppercase = true
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_direction = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ksiq7")
+
+[node name="ToolListContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="ToolTemplate" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ToolListContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="p1" type="TextureRect" parent="VBoxContainer/PanelContainer/ToolListContainer/ToolTemplate"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_n7xro")
+expand_mode = 1
+
+[node name="ToolDetails" type="VBoxContainer" parent="VBoxContainer/PanelContainer/ToolListContainer/ToolTemplate"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="effect" type="Label" parent="VBoxContainer/PanelContainer/ToolListContainer/ToolTemplate/ToolDetails"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="description" type="Label" parent="VBoxContainer/PanelContainer/ToolListContainer/ToolTemplate/ToolDetails"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="p2" type="TextureRect" parent="VBoxContainer/PanelContainer/ToolListContainer/ToolTemplate"]
+modulate = Color(0.831373, 0.227451, 0.156863, 1)
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_n7xro")
+expand_mode = 1
+flip_h = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="BackButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 35
+action_mode = 0
+keep_pressed_outside = true
+text = "BACK"
+
+[node name="StartButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_hover_color = Color(0.298039, 0.686275, 0.313726, 1)
+theme_override_font_sizes/font_size = 35
+theme_override_styles/hover = SubResource("StyleBoxFlat_dqff5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pcs3b")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3lad1")
+action_mode = 0
+keep_pressed_outside = true
+text = "START"
+flat = true
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

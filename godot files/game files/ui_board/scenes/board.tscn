@@ -31,7 +31,16 @@ theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 script = ExtResource("1_ot4v0")
 
-[node name="selector" type="TextureRect" parent="."]
+[node name="selector1" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("3_yy3kr")
+expand_mode = 1
+
+[node name="selector2" type="TextureRect" parent="."]
+visible = false
 layout_mode = 2
 offset_right = 64.0
 offset_bottom = 64.0
