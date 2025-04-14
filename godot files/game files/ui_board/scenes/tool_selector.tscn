@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://xuma4e2lcbji"]
+[gd_scene load_steps=8 format=3 uid="uid://xuma4e2lcbji"]
 
 [ext_resource type="Script" path="res://game files/ui_board/scripts/tool_selector.gd" id="1_6gd65"]
 [ext_resource type="Texture2D" uid="uid://8p0h45exssog" path="res://game files/ui_board/assets/select.png" id="2_n7xro"]
+[ext_resource type="FontFile" uid="uid://bkesror4vke0g" path="res://game files/ui_board/assets/fonts/NotoColorEmoji-Regular.ttf" id="3_gug2i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ksiq7"]
 bg_color = Color(0.6, 0.686275, 0.686275, 1)
@@ -85,13 +86,27 @@ layout_mode = 2
 size_flags_horizontal = 6
 alignment = 1
 
-[node name="effect" type="Label" parent="VBoxContainer/PanelContainer/ToolListContainer/ToolTemplate/ToolDetails"]
-custom_minimum_size = Vector2(300, 0)
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/ToolListContainer/ToolTemplate/ToolDetails"]
 layout_mode = 2
+alignment = 1
+
+[node name="icon" type="Label" parent="VBoxContainer/PanelContainer/ToolListContainer/ToolTemplate/ToolDetails/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_gug2i")
 theme_override_font_sizes/font_size = 24
 horizontal_alignment = 1
 autowrap_mode = 3
+
+[node name="effect" type="Label" parent="VBoxContainer/PanelContainer/ToolListContainer/ToolTemplate/ToolDetails/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
 
 [node name="description" type="Label" parent="VBoxContainer/PanelContainer/ToolListContainer/ToolTemplate/ToolDetails"]
 custom_minimum_size = Vector2(300, 0)

@@ -97,12 +97,12 @@ func end_game(player_num: int, won: bool=true):
 	
 	var message = ""
 	if player_num == 0:
-		message = "🎉 Hey it's a tie! 🎉"
+		message = "Hey it's a tie - teamwork is dreamwork!"
 	else:
 		if won:
-			message = "🎉 Player %d wins by clearing 100% the minefield! 🎉" % player_num
+			message = "Player %d wins by clearing 100% the minefield!" % player_num
 		else:
-			message = "⚠️ Oops, player %d has lost all lives! ⚠️" % player_num
+			message = "Oops, player %d has lost all lives!" % player_num
 	
 	$EndGamePanel/VBoxContainer/Reason.text = message
 	end_panel.visible = true

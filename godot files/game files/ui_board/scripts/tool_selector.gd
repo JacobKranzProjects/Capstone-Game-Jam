@@ -60,7 +60,8 @@ func load_tools():
 		)
 
 func populate_tool_item(item, tool):
-	item.get_node("ToolDetails/effect").text = tool.icon + " " + tool.name + "  (" + tool.effect + ")"
+	item.get_node("ToolDetails/HBoxContainer/icon").text = tool.icon
+	item.get_node("ToolDetails/HBoxContainer/effect").text = tool.name + "  (" + tool.effect + ")"
 	item.get_node("ToolDetails/description").text = tool.description
 
 func handle_tool_selection(item, tool, click_x_pos):

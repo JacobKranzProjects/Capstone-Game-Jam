@@ -130,13 +130,13 @@ func update_stats():
 func setup_instructions():
 	# Set instructions dynamically based on player number
 	if player_num == 1:
-		instructions.text = '"WASD": Move | "Q": Clear | "E": Flag'
+		instructions.text = '"WASD":Move | "Q":Clear | "E":Flag'
 		if not player_stats.tool_used:
-			instructions.text += ' | "Z": ' + player_stats.tool.icon
+			instructions.text += ' | "Z":' + player_stats.tool.icon
 	else:
-		instructions.text = '"IJKL": Move | "U": Clear | "O": Flag'
+		instructions.text = '"IJKL":Move | "U":Clear | "O":Flag'
 		if not player_stats.tool_used:
-			instructions.text += ' | "M": ' + player_stats.tool.icon
+			instructions.text += ' | "M":' + player_stats.tool.icon
 	# Match width to grid and horizontally center
 	instructions.size.x = cell_manager.size.x
 	instructions.position.x = cell_manager.position.x
