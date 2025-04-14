@@ -1,25 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://wignqrx5cqeg"]
+[gd_scene load_steps=4 format=3 uid="uid://wignqrx5cqeg"]
 
 [ext_resource type="Script" path="res://game files/ui_board/scripts/stats_panel.gd" id="1_b0xe1"]
 [ext_resource type="FontFile" uid="uid://btbib5mmvfdfj" path="res://game files/ui_board/assets/fonts/RobotoMono-Bold.ttf" id="2_p6wcc"]
 [ext_resource type="FontFile" uid="uid://bkesror4vke0g" path="res://game files/ui_board/assets/fonts/NotoColorEmoji-Regular.ttf" id="2_ptcju"]
-
-[sub_resource type="FontFile" id="FontFile_grpq3"]
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/45/0/ascent = 0.0
-cache/0/45/0/descent = 0.0
-cache/0/45/0/underline_position = 0.0
-cache/0/45/0/underline_thickness = 0.0
-cache/0/45/0/scale = 1.0
-cache/0/30/0/ascent = 0.0
-cache/0/30/0/descent = 0.0
-cache/0/30/0/underline_position = 0.0
-cache/0/30/0/underline_thickness = 0.0
-cache/0/30/0/scale = 1.0
 
 [node name="StatsPanel" type="Control"]
 layout_mode = 3
@@ -33,7 +16,7 @@ offset_bottom = 40.0
 alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 70)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -43,7 +26,7 @@ alignment = 1
 
 [node name="Timer" type="Label" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = SubResource("FontFile_grpq3")
+theme_override_fonts/font = ExtResource("2_p6wcc")
 theme_override_font_sizes/font_size = 45
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -55,12 +38,24 @@ layout_mode = 2
 layout_mode = 2
 alignment = 1
 
-[node name="label" type="Label" parent="VBoxContainer/VBoxContainer/Flagged"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer/Flagged"]
+layout_mode = 2
+alignment = 1
+
+[node name="icon" type="Label" parent="VBoxContainer/VBoxContainer/Flagged/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_ptcju")
-text = "💣 MinesMarked"
+text = "💣"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="label" type="Label" parent="VBoxContainer/VBoxContainer/Flagged/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Mines Marked"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -80,12 +75,24 @@ layout_mode = 2
 layout_mode = 2
 alignment = 1
 
-[node name="label" type="Label" parent="VBoxContainer/VBoxContainer/Lives"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/VBoxContainer/Lives"]
+layout_mode = 2
+alignment = 1
+
+[node name="icon" type="Label" parent="VBoxContainer/VBoxContainer/Lives/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.972549, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_ptcju")
-text = "❤️ DeminersLeft"
+text = "❤️"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="label" type="Label" parent="VBoxContainer/VBoxContainer/Lives/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Deminers Left"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -105,15 +112,26 @@ layout_mode = 2
 layout_mode = 2
 alignment = 1
 
-[node name="label" type="Label" parent="VBoxContainer/VBoxContainer/Moves"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/VBoxContainer/Moves"]
+layout_mode = 2
+alignment = 1
+
+[node name="icon" type="Label" parent="VBoxContainer/VBoxContainer/Moves/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0, 0, 0.866667, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_ptcju")
-text = "🔄 EffortsMade"
+text = "🔄"
 horizontal_alignment = 1
 vertical_alignment = 1
-justification_flags = 227
+
+[node name="label" type="Label" parent="VBoxContainer/VBoxContainer/Moves/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Efforts Made"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="value" type="Label" parent="VBoxContainer/VBoxContainer/Moves"]
 layout_mode = 2
@@ -131,12 +149,24 @@ layout_mode = 2
 layout_mode = 2
 alignment = 1
 
-[node name="label" type="Label" parent="VBoxContainer/VBoxContainer/Cleared"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/VBoxContainer/Cleared"]
+layout_mode = 2
+alignment = 1
+
+[node name="icon" type="Label" parent="VBoxContainer/VBoxContainer/Cleared/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0, 0.14902, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_ptcju")
-text = "✅ LandCleared(%)"
+text = "✅"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="label" type="Label" parent="VBoxContainer/VBoxContainer/Cleared/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Land Cleared (%)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -156,12 +186,24 @@ layout_mode = 2
 layout_mode = 2
 alignment = 1
 
-[node name="label" type="Label" parent="VBoxContainer/VBoxContainer/Efficiency"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer/VBoxContainer/Efficiency"]
+layout_mode = 2
+alignment = 1
+
+[node name="icon" type="Label" parent="VBoxContainer/VBoxContainer/Efficiency/HBoxContainer5"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.866667, 0.792157, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_ptcju")
-text = "⚡ Efficiency(%)"
+text = "⚡"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="label" type="Label" parent="VBoxContainer/VBoxContainer/Efficiency/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Efficiency (%)"
 horizontal_alignment = 1
 vertical_alignment = 1
 

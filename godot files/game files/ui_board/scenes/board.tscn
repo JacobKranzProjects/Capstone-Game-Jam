@@ -50,15 +50,25 @@ offset_bottom = 64.0
 texture = ExtResource("3_yy3kr")
 expand_mode = 1
 
-[node name="instructions" type="Label" parent="."]
+[node name="instruction container" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_right = 254.0
+offset_bottom = 40.0
+alignment = 1
+
+[node name="instructions" type="Label" parent="instruction container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0823529, 0.262745, 0.45098, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+
+[node name="icon" type="Label" parent="instruction container"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0.0823529, 0.262745, 0.45098, 1)
 theme_override_constants/outline_size = 1
 theme_override_fonts/font = ExtResource("4_5a0fj")
 theme_override_font_sizes/font_size = 15
-horizontal_alignment = 1
 
 [node name="action" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_u68u8")

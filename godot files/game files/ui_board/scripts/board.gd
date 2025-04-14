@@ -10,7 +10,9 @@ var player_tag = "p" + str(player_num) + "_"
 @onready var cell_manager: GridContainer = $"cell manager container/cell manager"
 @onready var cell_manager_container: HBoxContainer = $"cell manager container"
 #@onready var selector: TextureRect = $selector
-@onready var instructions: Label = $instructions
+@onready var instructions: Label = $"instruction container/instructions"
+@onready var instruction_icon = $"instruction container/icon"
+
 #var selector_grid_position: Vector2 = Vector2(0,0)
 
 var selectors = {}
@@ -62,7 +64,7 @@ func setup_board(board_size, data, powerup, life_change, is_dummy=false):
 		setup_instructions()
 	
 	selectors[player_tag].visible = not is_dummy
-	instructions.visible = not is_dummy
+	$"instruction container".visible = not is_dummy
 	
 func update_selector_position(tag):
 	selectors[tag].size = cell_manager.get_child(0).size
@@ -130,19 +132,22 @@ func update_stats():
 func setup_instructions():
 	# Set instructions dynamically based on player number
 	if player_num == 1:
-		instructions.text = '"WASD":Move | "Q":Clear | "E":Flag'
+		instructions.text = '"WASD" : Move | "Q" : Clear | "E" : Flag'
+		instruction_icon.text = ''
 		if not player_stats.tool_used:
-			instructions.text += ' | "Z":' + player_stats.tool.icon
+			instructions.text += ' | "Z" : '
+			instruction_icon.text = player_stats.tool.icon
 	else:
-		instructions.text = '"IJKL":Move | "U":Clear | "O":Flag'
+		instructions.text = '"IJKL" : Move | "U" : Clear | "O" : Flag'
+		instruction_icon.text = ''
 		if not player_stats.tool_used:
-			instructions.text += ' | "M":' + player_stats.tool.icon
+			instructions.text += ' | "M" : '
+			instruction_icon.text =  player_stats.tool.icon
 	# Match width to grid and horizontally center
-	instructions.size.x = cell_manager.size.x
-	instructions.position.x = cell_manager.position.x
-	instructions.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	$"instruction container".size.x = cell_manager.size.x
+	$"instruction container".position.x = cell_manager.position.x
 	# Position directly below the grid
-	instructions.position.y = cell_manager.position.y + cell_manager.size.y + 3
+	$"instruction container".position.y = cell_manager.position.y + cell_manager.size.y + 3
 
 func activate_powerup():
 	# Generate mines first if they haven't been created yet
