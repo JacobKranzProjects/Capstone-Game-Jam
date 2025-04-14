@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://vnhwytnrhd3f"]
+[gd_scene load_steps=6 format=3 uid="uid://vnhwytnrhd3f"]
 
 [ext_resource type="Script" path="res://game files/ui_board/scripts/cell manager.gd" id="1_ot4v0"]
 [ext_resource type="Script" path="res://game files/ui_board/scripts/board.gd" id="1_pkk3r"]
 [ext_resource type="Texture2D" uid="uid://ce4cttb53m0qg" path="res://game files/ui_board/assets/selector sprite.png" id="3_yy3kr"]
+[ext_resource type="AudioStream" uid="uid://brx2l1gduk4lg" path="res://game files/ui_board/assets/sound/click.wav" id="4_u68u8"]
+[ext_resource type="AudioStream" uid="uid://b8xwo5gvpigu0" path="res://game files/ui_board/assets/sound/lose_minesweeper.wav" id="5_e0dfs"]
 
 [node name="board" type="Control"]
 layout_mode = 3
@@ -54,3 +56,9 @@ offset_bottom = 23.0
 theme_override_colors/font_color = Color(0.0823529, 0.262745, 0.45098, 1)
 theme_override_constants/outline_size = 1
 theme_override_font_sizes/font_size = 15
+
+[node name="action" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_u68u8")
+
+[node name="mine" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_e0dfs")

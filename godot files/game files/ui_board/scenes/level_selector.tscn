@@ -75,4 +75,13 @@ keep_pressed_outside = true
 text = "NEXT"
 flat = true
 
+[node name="Copyright" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 15
+text = "© 2025 Capstone JG2"
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [connection signal="pressed" from="VBoxContainer/NextButton" to="." method="_on_next_button_pressed"]

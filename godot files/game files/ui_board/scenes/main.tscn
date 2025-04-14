@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dt4ge5dyidi8s"]
+[gd_scene load_steps=8 format=3 uid="uid://dt4ge5dyidi8s"]
 
 [ext_resource type="PackedScene" uid="uid://vnhwytnrhd3f" path="res://game files/ui_board/scenes/board.tscn" id="1_kfsf8"]
 [ext_resource type="Script" path="res://game files/ui_board/scripts/main.gd" id="1_xlp2w"]
 [ext_resource type="PackedScene" uid="uid://tsjvy3d8eak8" path="res://game files/ui_board/scenes/info_panel.tscn" id="2_ru45x"]
 [ext_resource type="PackedScene" uid="uid://wignqrx5cqeg" path="res://game files/ui_board/scenes/stat_panel.tscn" id="4_6rhhl"]
+[ext_resource type="AudioStream" uid="uid://bj77mlx0hxjyn" path="res://game files/ui_board/assets/sound/bg_soundtrack.mp3" id="5_dx7ph"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3brf"]
 bg_color = Color(0.6, 0.686275, 0.686275, 1)
@@ -112,6 +113,12 @@ action_mode = 0
 keep_pressed_outside = true
 text = "RESTART"
 flat = true
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_dx7ph")
+volume_db = -10.0
+playback_type = 1
+parameters/looping = true
 
 [connection signal="has_cell_revealed" from="VBoxContainer/BoardContainer/board1" to="." method="on_board_cell_revealed"]
 [connection signal="has_mine_triggered" from="VBoxContainer/BoardContainer/board1" to="." method="on_board_mine_triggered"]

@@ -17,6 +17,7 @@ var level_data
 var helping_hand_state = null
 
 func _ready():
+	$Music.play()
 	DisplayServer.window_set_size(WINDOW_SIZE)
 	size = WINDOW_SIZE
 
@@ -90,17 +91,18 @@ func check_game_over():
 
 func end_game(player_num: int, won: bool=true):
 	stat_panel.stop_timer()
+	$Music.stop()
 	board1.input_enabled = false
 	board2.input_enabled = false
 	
 	var message = ""
 	if player_num == 0:
-		message = "🎉 It's a tie! 🎉"
+		message = "🎉 Hey it's a tie! 🎉"
 	else:
 		if won:
 			message = "🎉 Player %d wins by clearing 100% the minefield! 🎉" % player_num
 		else:
-			message = "⚠️ Player %d has lost all lives! ⚠️" % player_num
+			message = "⚠️ Oops, player %d has lost all lives! ⚠️" % player_num
 	
 	$EndGamePanel/VBoxContainer/Reason.text = message
 	end_panel.visible = true

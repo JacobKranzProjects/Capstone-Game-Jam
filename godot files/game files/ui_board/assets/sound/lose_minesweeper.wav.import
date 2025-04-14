@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b8xwo5gvpigu0"
+path="res://.godot/imported/lose_minesweeper.wav-5ce0a38d26c498d122a10ed4b11e069d.sample"
+
+[deps]
+
+source_file="res://game files/ui_board/assets/sound/lose_minesweeper.wav"
+dest_files=["res://.godot/imported/lose_minesweeper.wav-5ce0a38d26c498d122a10ed4b11e069d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

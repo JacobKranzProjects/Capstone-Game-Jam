@@ -85,9 +85,10 @@ func _process(_delta: float) -> void:
 			if Input.is_action_just_pressed(tag + "left"): move_selector(tag, Vector2(-1,0))
 			if Input.is_action_just_pressed(tag + "right"): move_selector(tag, Vector2(1,0))
 
-			if Input.is_action_just_pressed(tag + "mark"): 
+			if Input.is_action_just_pressed(tag + "mark"):
 				cell_manager.mark(selector_grid_positions[tag])
 				player_stats.moves += 1
+				$action.play()
 				update_stats()
 			
 			if Input.is_action_just_pressed(tag + "clear"):
@@ -98,23 +99,18 @@ func _process(_delta: float) -> void:
 					intitial_mines_made = true
 				cell_manager.cell_dict[selector_grid_positions[tag]].reveal(tag != player_tag)
 				player_stats.moves += 1
+				$action.play()
 				update_stats()
 				
 	if Input.is_action_just_pressed(player_tag + "powerup"):
 		if player_stats.tool_used:
-			# TODO: play some buzzing sound
 			return
+		$action.play()
 		activate_powerup()
-		# TODO: play a ding
 	
 func _on_mine_triggered(by_partner: bool):
+	$mine.play()
 	emit_signal("has_mine_triggered", self, by_partner)
-	#player_stats.lives -= 1
-	#update_stats()
-	#
-	#if player_stats.lives <= 0:
-		#print('Player %d game over!' % player_num)
-		## TODO: trigger game-over stuff
 
 func _on_cell_revealed(by_partner: bool):
 	update_stats()
