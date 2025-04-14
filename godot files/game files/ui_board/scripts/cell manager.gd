@@ -3,12 +3,12 @@ extends GridContainer
 var cell_scene = preload("res://game files/ui_board/scenes/cell.tscn")
 var cell_dict = {}
 
-
 func _ready() -> void:
 	pass
 
 # excludes existing mines and any cells in exclude_cells
-func create_mines(num_mines, exclude_cells): 
+func create_mines(num_mines, exclude_cells):
+	print('setting up board with %d mines' % num_mines) 
 	var valid_cells = []
 	for cell in cell_dict.values():
 		if !cell.is_mine and cell not in exclude_cells:
@@ -18,8 +18,6 @@ func create_mines(num_mines, exclude_cells):
 	for i in num_mines: # now make a mine in the first 'num_mines' cells
 		valid_cells[i].is_mine = true
 		valid_cells[i].update()
-
-
 
 func create_grid(grid_size, cell_size):
 	# Clear existing grid if reloading
@@ -33,6 +31,10 @@ func create_grid(grid_size, cell_size):
 			var new_cell = cell_scene.instantiate() # Instantiate cell
 			new_cell.grid_position = Vector2(j,i) # set cell grid position
 			new_cell.custom_minimum_size = Vector2(cell_size, cell_size)
+			
+			new_cell.mine_triggered.connect(get_parent().get_parent()._on_mine_triggered)
+			new_cell.cell_revealed.connect(get_parent().get_parent()._on_cell_revealed)
+			
 			cell_dict[new_cell.grid_position] = new_cell # add cell address to dictionary
 			add_child(new_cell) # add the cell as a child
 
@@ -48,7 +50,6 @@ func get_cell_neighbors(grid_position):
 		neighbors[index] = cell_dict.get(neighbors[index]) # set element to neighbor address
 		if neighbors[index] == null: neighbors.remove_at(index) # if element is null (borders for example), then we remove it from the list
 	return neighbors # return list
-
 
 func mark(cell_position):
 	cell_dict[cell_position].mark()

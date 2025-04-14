@@ -1,5 +1,7 @@
 extends TextureRect
 
+signal mine_triggered(by_partner: bool)
+signal cell_revealed(by_partner: bool)
 
 var revealed = false
 var is_marked = false
@@ -16,17 +18,18 @@ func mark():
 	update()
 	
 
-func reveal():
+func reveal(by_partner: bool = false):
 	if is_marked: return
 	if revealed: return
 	revealed = true
 	if is_mine:
-		trigger_loss()
+		trigger_loss(by_partner)
 		return
 	update()
+	cell_revealed.emit(by_partner)
 	if number == 0 and !is_mine:
 		for cell in get_parent().get_cell_neighbors(grid_position):
-			cell.reveal()
+			cell.reveal(by_partner)
 
 
 func update():
@@ -43,6 +46,7 @@ func update():
 	elif !revealed and is_marked: texture.region = Rect2(192,128,64,64) # flag
 
 
-func trigger_loss():
+func trigger_loss(by_partner: bool = false):
 	update()
-	print("trigger a loss here")
+	mine_triggered.emit(by_partner)
+	print("trigger a loss here - by_partner=" + str(by_partner))

@@ -1,12 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://wignqrx5cqeg"]
+[gd_scene load_steps=3 format=3 uid="uid://wignqrx5cqeg"]
 
 [ext_resource type="Script" path="res://game files/ui_board/scripts/stats_panel.gd" id="1_b0xe1"]
-
-[sub_resource type="Theme" id="Theme_8rrql"]
-default_font_size = 40
-
-[sub_resource type="Theme" id="Theme_owbjy"]
-default_font_size = 25
+[ext_resource type="FontFile" uid="uid://carg0mnx3jjbs" path="res://game files/ui_board/assets/robotoMonoBold.tres" id="2_rg3m2"]
 
 [node name="StatsPanel" type="Control"]
 layout_mode = 3
@@ -20,7 +15,7 @@ offset_bottom = 40.0
 alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -30,11 +25,34 @@ alignment = 1
 
 [node name="Timer" type="Label" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = SubResource("Theme_8rrql")
+theme_override_fonts/font = ExtResource("2_rg3m2")
+theme_override_font_sizes/font_size = 45
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Flagged" type="VBoxContainer" parent="VBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="label" type="Label" parent="VBoxContainer/VBoxContainer/Flagged"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "💣 Mines Marked"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="value" type="Label" parent="VBoxContainer/VBoxContainer/Flagged"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rg3m2")
+theme_override_font_sizes/font_size = 30
+text = "0 | 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator5" type="HSeparator" parent="VBoxContainer/VBoxContainer"]
 layout_mode = 2
 
 [node name="Lives" type="VBoxContainer" parent="VBoxContainer/VBoxContainer"]
@@ -44,13 +62,14 @@ alignment = 1
 [node name="label" type="Label" parent="VBoxContainer/VBoxContainer/Lives"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.972549, 0, 0, 1)
-text = "❤️ Lives"
+text = "❤️ Deminers Left"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="value" type="Label" parent="VBoxContainer/VBoxContainer/Lives"]
 layout_mode = 2
-theme = SubResource("Theme_owbjy")
+theme_override_fonts/font = ExtResource("2_rg3m2")
+theme_override_font_sizes/font_size = 30
 text = "3 | 3"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -65,13 +84,14 @@ alignment = 1
 [node name="label" type="Label" parent="VBoxContainer/VBoxContainer/Moves"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0.866667, 1)
-text = "🎯 Moves"
+text = "🔄 Efforts Made"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="value" type="Label" parent="VBoxContainer/VBoxContainer/Moves"]
 layout_mode = 2
-theme = SubResource("Theme_owbjy")
+theme_override_fonts/font = ExtResource("2_rg3m2")
+theme_override_font_sizes/font_size = 30
 text = "  0  |  0  "
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -86,13 +106,14 @@ alignment = 1
 [node name="label" type="Label" parent="VBoxContainer/VBoxContainer/Cleared"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0.14902, 0, 1)
-text = "✅ Cleared"
+text = "✅ Land Cleared (%)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="value" type="Label" parent="VBoxContainer/VBoxContainer/Cleared"]
 layout_mode = 2
-theme = SubResource("Theme_owbjy")
+theme_override_fonts/font = ExtResource("2_rg3m2")
+theme_override_font_sizes/font_size = 30
 text = "  0  |  0  "
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -107,13 +128,14 @@ alignment = 1
 [node name="label" type="Label" parent="VBoxContainer/VBoxContainer/Efficiency"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.866667, 0.792157, 0, 1)
-text = "⚡ Efficiency"
+text = "⚡ Efficiency (%)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="value" type="Label" parent="VBoxContainer/VBoxContainer/Efficiency"]
 layout_mode = 2
-theme = SubResource("Theme_owbjy")
+theme_override_fonts/font = ExtResource("2_rg3m2")
+theme_override_font_sizes/font_size = 30
 text = "  0  |  0  "
 horizontal_alignment = 1
 vertical_alignment = 1
