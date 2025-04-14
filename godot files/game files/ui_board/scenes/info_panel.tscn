@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://tsjvy3d8eak8"]
+
+[ext_resource type="Script" path="res://game files/ui_board/scripts/info_panel.gd" id="1_5u4l5"]
+
+[node name="InfoPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+script = ExtResource("1_5u4l5")
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 22.0
+offset_right = 341.0
+offset_bottom = 140.0
+theme_override_colors/font_color = Color(0.952941, 0.396078, 0.0705882, 1)
+theme_override_colors/font_shadow_color = Color(0.0823529, 0.262745, 0.45098, 1)
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Map" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 392.0
+offset_top = 20.0
+offset_right = 582.0
+offset_bottom = 146.0
+expand_mode = 1
+
+[node name="Facts" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 628.0
+offset_top = 18.0
+offset_right = 1250.0
+offset_bottom = 132.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false

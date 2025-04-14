@@ -1,0 +1,87 @@
+[gd_scene load_steps=4 format=3 uid="uid://djyfk7jbb548h"]
+
+[ext_resource type="Script" path="res://game files/ui_board/scripts/level_selector.gd" id="1_wk8p8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chcbx"]
+bg_color = Color(0.6, 0.686275, 0.686275, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ut62"]
+bg_color = Color(0.298039, 0.686275, 0.313726, 1)
+
+[node name="LevelSelector" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wk8p8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -339.0
+offset_top = -205.0
+offset_right = 341.0
+offset_bottom = 194.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.952941, 0.396078, 0.0705882, 1)
+theme_override_colors/font_shadow_color = Color(0.0823529, 0.262745, 0.45098, 1)
+theme_override_font_sizes/font_size = 45
+text = "Sweep2 a Safer World!"
+horizontal_alignment = 1
+vertical_alignment = 3
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0823529, 0.262745, 0.45098, 1)
+theme_override_colors/font_outline_color = Color(0.952941, 0.396078, 0.0705882, 1)
+theme_override_font_sizes/font_size = 35
+text = "Choose a Country"
+horizontal_alignment = 1
+vertical_alignment = 3
+uppercase = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_chcbx")
+vertical_scroll_mode = 0
+scroll_deadzone = 5
+
+[node name="LevelContainer" type="HBoxContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="NextButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.952941, 0.396078, 0.0705882, 1)
+theme_override_colors/font_pressed_color = Color(0.952941, 0.396078, 0.0705882, 1)
+theme_override_colors/font_color = Color(0.0823529, 0.262745, 0.45098, 1)
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_6ut62")
+action_mode = 0
+keep_pressed_outside = true
+text = "NEXT"
+flat = true
+
+[node name="Copyright" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 15
+text = "© 2025 Capstone JG2"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[connection signal="pressed" from="VBoxContainer/NextButton" to="." method="_on_next_button_pressed"]
