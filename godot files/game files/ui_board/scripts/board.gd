@@ -30,7 +30,7 @@ func _ready():
 	selectors['p2_'].modulate = Color(1, 0.4, 0.4) # orange
 	selectors[player_tag].visible = true
 
-func setup_board(board_size, data, powerup, is_dummy=false):
+func setup_board(board_size, data, powerup, life_change, is_dummy=false):
 	anchors_preset = PRESET_TOP_LEFT
 	size = board_size
 	level_data = data
@@ -47,12 +47,6 @@ func setup_board(board_size, data, powerup, is_dummy=false):
 	await get_tree().process_frame
 
 	cell_manager.position = (size - cell_manager.size) / 2
-	
-	#selector.size = Vector2(cell_size, cell_size)
-	#selector_grid_position = Vector2(0, 0) 
-	#if player_num == 2:
-		#selector.modulate = Color(1, 0.4, 0.4)
-	#update_selector_position()
 
 	# Initial grid positions per selector
 	selector_grid_positions["p1_"] = Vector2(0,0)
@@ -63,6 +57,7 @@ func setup_board(board_size, data, powerup, is_dummy=false):
 	update_selector_position("p2_")
 	
 	player_stats = PlayerStats.new(grid_size * grid_size, powerup)
+	player_stats.lives += life_change
 	if player_stats.tool:
 		setup_instructions()
 	

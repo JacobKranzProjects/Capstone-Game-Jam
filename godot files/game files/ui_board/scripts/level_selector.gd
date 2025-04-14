@@ -37,7 +37,7 @@ func configure_thumbnail(thumbnail, level_number, data):
 	var dummy = board_scene.instantiate()
 	thumbnail.get_node("VBoxContainer").add_child(dummy)
 	await dummy.ready
-	dummy.setup_board(thumbnail.custom_minimum_size * 0.75, data, null, true)
+	dummy.setup_board(thumbnail.custom_minimum_size * 0.75, data, null, 0, true)
 
 	# Selection event
 	thumbnail.gui_input.connect(func(event):

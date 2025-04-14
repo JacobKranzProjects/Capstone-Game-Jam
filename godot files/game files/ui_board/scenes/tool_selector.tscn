@@ -123,7 +123,7 @@ keep_pressed_outside = true
 text = "BACK"
 
 [node name="StartButton" type="Button" parent="VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(80, 0)
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4

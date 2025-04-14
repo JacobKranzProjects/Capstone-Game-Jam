@@ -1,9 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://dt4ge5dyidi8s"]
+[gd_scene load_steps=7 format=3 uid="uid://dt4ge5dyidi8s"]
 
 [ext_resource type="PackedScene" uid="uid://vnhwytnrhd3f" path="res://game files/ui_board/scenes/board.tscn" id="1_kfsf8"]
 [ext_resource type="Script" path="res://game files/ui_board/scripts/main.gd" id="1_xlp2w"]
 [ext_resource type="PackedScene" uid="uid://tsjvy3d8eak8" path="res://game files/ui_board/scenes/info_panel.tscn" id="2_ru45x"]
 [ext_resource type="PackedScene" uid="uid://wignqrx5cqeg" path="res://game files/ui_board/scenes/stat_panel.tscn" id="4_6rhhl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3brf"]
+bg_color = Color(0.6, 0.686275, 0.686275, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 12
+shadow_color = Color(0, 0.847765, 0, 0.6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ghw53"]
+bg_color = Color(0.298039, 0.686275, 0.313726, 1)
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -40,9 +52,68 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 player_num = 2
 
+[node name="EndGamePanel" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 414.0
+offset_top = 211.0
+offset_right = 894.0
+offset_bottom = 445.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_w3brf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EndGamePanel"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="EndGamePanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 30
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Reason" type="Label" parent="EndGamePanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EndGamePanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/separation = 30
+
+[node name="Back" type="Button" parent="EndGamePanel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 20
+action_mode = 0
+text = "BACK"
+
+[node name="Restart" type="Button" parent="EndGamePanel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 35)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_hover_color = Color(0.298039, 0.686275, 0.313726, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_ghw53")
+action_mode = 0
+keep_pressed_outside = true
+text = "RESTART"
+flat = true
+
 [connection signal="has_cell_revealed" from="VBoxContainer/BoardContainer/board1" to="." method="on_board_cell_revealed"]
 [connection signal="has_mine_triggered" from="VBoxContainer/BoardContainer/board1" to="." method="on_board_mine_triggered"]
 [connection signal="request_partner_control" from="VBoxContainer/BoardContainer/board1" to="." method="activate_partner_control"]
 [connection signal="has_cell_revealed" from="VBoxContainer/BoardContainer/board2" to="." method="on_board_cell_revealed"]
 [connection signal="has_mine_triggered" from="VBoxContainer/BoardContainer/board2" to="." method="on_board_mine_triggered"]
 [connection signal="request_partner_control" from="VBoxContainer/BoardContainer/board2" to="." method="activate_partner_control"]
+[connection signal="pressed" from="EndGamePanel/VBoxContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="EndGamePanel/VBoxContainer/HBoxContainer/Restart" to="." method="_on_restart_pressed"]
