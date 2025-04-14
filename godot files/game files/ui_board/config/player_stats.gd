@@ -1,7 +1,7 @@
 extends Resource
 class_name PlayerStats
 
-var lives: int = 3
+var lives: int = 1
 var flagged: int = 0
 var moves: int = 0
 var cleared: int = 0
@@ -29,6 +29,6 @@ func _init(total_cells: int, selected_tool=null):
 
 func update(n_revealed: int, n_flagged: int):
 	flagged = n_flagged
-	cleared = int(100.0 * n_revealed / n_cells)
+	cleared = int(100.0 * (n_revealed + n_flagged) / n_cells)
 	efficiency = 0 if moves == 0 else int(float(cleared) / moves)
 	

@@ -79,7 +79,6 @@ vertical_alignment = 1
 
 [node name="Reason" type="Label" parent="EndGamePanel/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_colors/font_color = Color(0.0823529, 0.262745, 0.45098, 1)
 theme_override_font_sizes/font_size = 25

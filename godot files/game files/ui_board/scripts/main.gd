@@ -83,26 +83,25 @@ func check_game_over():
 	elif p2_lost:
 		end_game(2, false)
 	elif p1_won and p2_won:
-		end_game(0)  # tie 
+		end_game(0, true)  # tie 
 	elif p1_won:
-		end_game(1)
+		end_game(1, true)
 	elif p2_won:
-		end_game(2)
+		end_game(2, true)
 
-func end_game(player_num: int, won: bool=true):
+func end_game(player_num: int, won: bool):
 	stat_panel.stop_timer()
 	$Music.stop()
 	board1.input_enabled = false
 	board2.input_enabled = false
 	
-	var message = ""
+	var message
 	if player_num == 0:
 		message = "Hey it's a tie - teamwork is dreamwork!"
+	elif won == true:
+		message = "Player %d wins by clearing the field!" % player_num
 	else:
-		if won:
-			message = "Player %d wins by clearing 100% the minefield!" % player_num
-		else:
-			message = "Oops, player %d has lost all lives!" % player_num
+		message = "Oops, player %d has lost all lives!" % player_num
 	
 	$EndGamePanel/VBoxContainer/Reason.text = message
 	end_panel.visible = true
