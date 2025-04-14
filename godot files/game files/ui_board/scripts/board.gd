@@ -145,6 +145,14 @@ func setup_instructions():
 	instructions.position.y = cell_manager.position.y + cell_manager.size.y + 3
 
 func activate_powerup():
+	# Generate mines first if they haven't been created yet
+	if !intitial_mines_made:
+		var initial_pos = selector_grid_positions[player_tag]
+		var exclusions = cell_manager.get_cell_neighbors(initial_pos)
+		exclusions.append(cell_manager.cell_dict[initial_pos])
+		cell_manager.create_mines(level_data.mines[player_num-1], exclusions)
+		intitial_mines_made = true
+	
 	if player_stats.tool.effect.ends_with("area"):
 		# Reveal safe cells in a random NxN area
 		var area = int(player_stats.tool.effect.split("random ")[1][0])
@@ -160,6 +168,7 @@ func activate_powerup():
 		emit_signal("request_partner_control", self)
 		
 	player_stats.tool_used = true
+	setup_instructions()
 
 func reveal_n_random_safe_cells(n: int):
 	var cells = []
