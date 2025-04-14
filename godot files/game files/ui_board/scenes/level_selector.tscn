@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://djyfk7jbb548h"]
+[gd_scene load_steps=4 format=3 uid="uid://djyfk7jbb548h"]
 
 [ext_resource type="Script" path="res://game files/ui_board/scripts/level_selector.gd" id="1_wk8p8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chcbx"]
+bg_color = Color(0.6, 0.686275, 0.686275, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ut62"]
 bg_color = Color(0.298039, 0.686275, 0.313726, 1)
@@ -31,6 +34,8 @@ theme_override_constants/separation = 10
 
 [node name="Title" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.952941, 0.396078, 0.0705882, 1)
+theme_override_colors/font_shadow_color = Color(0.0823529, 0.262745, 0.45098, 1)
 theme_override_font_sizes/font_size = 45
 text = "Sweep2 a Safer World!"
 horizontal_alignment = 1
@@ -38,6 +43,8 @@ vertical_alignment = 3
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.0823529, 0.262745, 0.45098, 1)
+theme_override_colors/font_outline_color = Color(0.952941, 0.396078, 0.0705882, 1)
 theme_override_font_sizes/font_size = 35
 text = "Choose a Country"
 horizontal_alignment = 1
@@ -47,7 +54,9 @@ uppercase = true
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_chcbx")
 vertical_scroll_mode = 0
+scroll_deadzone = 5
 
 [node name="LevelContainer" type="HBoxContainer" parent="VBoxContainer/ScrollContainer"]
 layout_mode = 2
@@ -56,7 +65,9 @@ size_flags_vertical = 4
 
 [node name="NextButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.298039, 0.686275, 0.313726, 1)
+theme_override_colors/font_hover_color = Color(0.952941, 0.396078, 0.0705882, 1)
+theme_override_colors/font_pressed_color = Color(0.952941, 0.396078, 0.0705882, 1)
+theme_override_colors/font_color = Color(0.0823529, 0.262745, 0.45098, 1)
 theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_6ut62")
 action_mode = 0

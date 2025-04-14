@@ -41,6 +41,8 @@ theme_override_constants/separation = 10
 
 [node name="Title" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.952941, 0.396078, 0.0705882, 1)
+theme_override_colors/font_shadow_color = Color(0.0823529, 0.262745, 0.45098, 1)
 theme_override_font_sizes/font_size = 45
 text = "Sweep2 a Safer World!"
 horizontal_alignment = 1
@@ -48,6 +50,7 @@ vertical_alignment = 3
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.0823529, 0.262745, 0.45098, 1)
 theme_override_font_sizes/font_size = 35
 text = "Choose Your Power-Up"
 horizontal_alignment = 1
@@ -127,7 +130,9 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_colors/font_hover_color = Color(0.298039, 0.686275, 0.313726, 1)
+theme_override_colors/font_hover_color = Color(0.952941, 0.396078, 0.0705882, 1)
+theme_override_colors/font_pressed_color = Color(0.952941, 0.396078, 0.0705882, 1)
+theme_override_colors/font_color = Color(0.0823529, 0.262745, 0.45098, 1)
 theme_override_font_sizes/font_size = 35
 theme_override_styles/hover = SubResource("StyleBoxFlat_dqff5")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_pcs3b")
